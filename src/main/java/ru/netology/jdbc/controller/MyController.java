@@ -1,7 +1,9 @@
 package ru.netology.jdbc.controller;
 import org.springframework.web.bind.annotation.*;
-import ru.netology.jdbc.model.Customer;
-import ru.netology.jdbc.model.Order;
+import ru.netology.jdbc.entity.Customer;
+import ru.netology.jdbc.entity.Order;
+import ru.netology.jdbc.model.CustomerForRequest;
+import ru.netology.jdbc.model.OrderForRequest;
 import ru.netology.jdbc.service.MyService;
 
 @RestController
@@ -13,12 +15,12 @@ public class MyController {
     }
 
     @PostMapping("add/customer")
-    public Integer addCustomer(@RequestBody Customer customer) {
+    public Customer addCustomer(@RequestBody CustomerForRequest customer) {
         return service.addCustomer(customer);
     }
 
     @PostMapping("add/order")
-    public Integer addOrder(@RequestBody Order order) {
+    public Order addOrder(@RequestBody OrderForRequest order) {
         return service.addOrder(order);
     }
 

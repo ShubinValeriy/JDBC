@@ -9,13 +9,13 @@ import java.util.Date;
 
 @Setter
 @Getter
-public class Order {
+public class OrderForRequest {
     private final Date date;
     private final int customer_id;
     private final String product_name;
     private final int amount;
 
-    public Order(String date, int customer_id, String product_name, int amount) {
+    public OrderForRequest(String date, int customer_id, String product_name, int amount) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {
             this.date = format.parse(date);

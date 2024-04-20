@@ -5,13 +5,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Customer {
+public class CustomerForRequest {
     private final String name;
     private final String surname;
     private final int age;
     private final String phone_number;
 
-    public Customer(String name, String surname, int age, String phone_number) {
+    public CustomerForRequest(String name, String surname, int age, String phone_number) {
         this.name = name;
         this.surname = surname;
         this.age = age;
