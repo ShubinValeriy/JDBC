@@ -31,4 +31,12 @@ public class MyService {
 
     public String welcome(){return "Welcome to my app!";}
 
+    public String read(){return "You can read";}
+
+    public String write(){return "You can write";}
+
+    public String delete(){return "You can delete";}
+
+    public String superMethod(String userName){return "You are superUser - " + userName;}
+
 }

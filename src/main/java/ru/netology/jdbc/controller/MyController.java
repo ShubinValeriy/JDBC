@@ -1,4 +1,7 @@
 package ru.netology.jdbc.controller;
+import jakarta.annotation.security.RolesAllowed;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.netology.jdbc.entity.Customer;
 import ru.netology.jdbc.entity.Order;
@@ -31,4 +34,23 @@ public class MyController {
     }
     @GetMapping("welcome")
     public String welcome() {return service.welcome();}
+
+    @GetMapping("read")
+    @Secured("ROLE_READ")
+    public String read() {return service.read();}
+
+    @GetMapping("write")
+    @RolesAllowed("WRITE")
+    public String write() {return service.write();}
+
+    @GetMapping("delete")
+    @PreAuthorize("hasAnyRole('ROLE_WRITE', 'ROLE_DELETE')")
+    public String delete() {return service.delete();}
+
+    @GetMapping("super_method")
+    @PreAuthorize("#userName == authentication.principal.username")
+    public String superMethod(@RequestParam String userName){
+        return service.superMethod(userName);
+    }
+
 }
