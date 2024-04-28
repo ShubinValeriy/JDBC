@@ -29,4 +29,6 @@ public class MyController {
     public String getProductName(@RequestParam String name) {
         return service.getProductName(name);
     }
+    @GetMapping("welcome")
+    public String welcome() {return service.welcome();}
 }

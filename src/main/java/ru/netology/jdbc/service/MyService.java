@@ -29,4 +29,6 @@ public class MyService {
         return repository.addOrder(order);
     }
 
+    public String welcome(){return "Welcome to my app!";}
+
 }
